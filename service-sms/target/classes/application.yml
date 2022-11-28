@@ -1,0 +1,23 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: serviceSms
+  cloud:
+    nacos:
+      server-addr: 192.168.159.131:8848
+  redis:
+    database: 1
+    timeout: 30000
+    lettuce:
+      pool:
+        max-active: 20
+        max-wait: -1
+        max-idle: 5
+        min-idle: 0
+    sentinel:
+      master: mymaster
+      nodes: 192.168.159.131:26379
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: Asia/Shanghai

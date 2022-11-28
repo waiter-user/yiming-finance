@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.ymjr.core.mapper.DictMapper">
+    <insert id="insertBatch" parameterType="com.java.ymjr.core.vo.DictVo">
+        insert into  dict(id,parent_id,`name`,value,dict_code) values
+        <foreach collection="list" item="dictVo"  separator=",">
+            (#{dictVo.id},#{dictVo.parentId},#{dictVo.name},#{dictVo.value},#{dictVo.dictCode})
+        </foreach>
+    </insert>
+</mapper>

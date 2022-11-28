@@ -1,0 +1,13 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: serviceOSS
+  cloud:
+    nacos:
+      server-addr: 192.168.159.131:8848
+#七牛云配置
+qiniu:
+  accessKey: NR58E2ppqZeIYwFdTBmBSj7_J4z7AD9b5mft1q-X
+  secretKey: GEZ5cNSCQEuQ5izbNG7VRx0MCifDUCxHMo9vESuf
+  bucket: ymjr-oss1

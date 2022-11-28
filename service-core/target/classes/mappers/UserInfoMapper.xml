@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.ymjr.core.mapper.UserInfoMapper">
+    <select id="queryByPage" resultType="com.java.ymjr.core.pojo.UserInfo">
+        select id,user_type,mobile, name,id_card,integral,create_time,bind_status,status
+        from user_info
+        <where>
+            <if test="null!=queryVo.mobile and ''!=queryVo.mobile">
+                mobile like '%${queryVo.mobile}%'
+            </if>
+            <if test="null!=queryVo.userType">
+                and user_type=#{queryVo.userType}
+            </if>
+            <if test="null!=queryVo.status">
+                and status=#{queryVo.status}
+            </if>
+        </where>
+    </select>
+</mapper>

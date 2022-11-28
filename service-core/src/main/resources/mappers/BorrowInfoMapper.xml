@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.ymjr.core.mapper.BorrowInfoMapper">
+    <select id="selectBorrowInfoList" resultType="com.java.ymjr.core.vo.BorrowInfoVO">
+        select a.id,
+               b.name,
+               b.mobile,
+               a.amount,
+               a.period,
+               a.return_method,
+               a.money_use,
+               a.borrow_year_rate,
+               a.`status`,
+               a.create_time
+        from borrow_info a
+                 LEFT JOIN borrower b on a.user_id = b.user_id
+        WHERE a.is_deleted = 0
+    </select>
+</mapper>
